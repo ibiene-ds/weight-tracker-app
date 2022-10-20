@@ -10,7 +10,7 @@ st.write("""
 """)
 
 # load historical data, import csv
-df = pd.read_csv('C:\\Users\\Ibiene\\OneDrive\\DataScience_MachineLearning\\Python Projects\\weight tracker app\\history.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/ibiene-ds/weight-tracker-app/master/history.csv')
 
 #check for and drop empty rows
 df.dropna(axis =0, how = 'all', inplace = True)
@@ -48,7 +48,7 @@ df['date'] = df.date.astype('datetime64[ns]')
 
 
 #save and overwrite history file
-df.to_csv('C:\\Users\\Ibiene\\OneDrive\\DataScience_MachineLearning\\Python Projects\\weight tracker app\\history.csv', index= False)
+df.to_csv('https://raw.githubusercontent.com/ibiene-ds/weight-tracker-app/master/history.csv', index= False)
 
 # plot historical data
 st.markdown("**Daily Weight Tracker**")
