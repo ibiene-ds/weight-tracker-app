@@ -4,13 +4,17 @@ import numpy as np
 from datetime import datetime, date
 import plotly.express as px
 
+
+
 st.write("""
 # Weight Tracker App
 ### **This simple app tracks daily weight and plots it for seamless tracking**
 """)
 
+
 # load historical data, import csv
-df = pd.read_csv('https://raw.githubusercontent.com/ibiene-ds/weight-tracker-app/master/history.csv')
+url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQyusdJWanOk38Wsm3HBSKnMohrn52K7W2Bz4SIbAOSlKHMb62IJXJT5iOHvmndVRuQXqCQKJ3iIkU7/pub?gid=0&single=true&output=csv"
+df = pd.read_csv(url)
 
 #check for and drop empty rows
 df.dropna(axis =0, how = 'all', inplace = True)
@@ -46,9 +50,8 @@ df = df.drop_duplicates(subset = ['date'], keep = 'last')
 # string to date transformation
 df['date'] = df.date.astype('datetime64[ns]')
 
-
-#save and overwrite history file
-df.to_csv('https://raw.githubusercontent.com/ibiene-ds/weight-tracker-app/master/history.csv', index= False)
+# save and overwrite history file
+df.to_csv(url,index= False)
 
 # plot historical data
 st.markdown("**Daily Weight Tracker**")
