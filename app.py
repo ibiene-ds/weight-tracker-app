@@ -27,7 +27,7 @@ date_list = []
 today = str(date.today())
 
 # ask user for input
-today_weight = float(input('Enter your weight in pounds: '))
+today_weight = st.number_input('Enter your weight in pounds: ')
 
 #append to empty lists
 date_list.append(today)
